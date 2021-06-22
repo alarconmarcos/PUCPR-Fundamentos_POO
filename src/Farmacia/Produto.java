@@ -21,10 +21,10 @@ public abstract class Produto implements Serializable {
 		String retorno = "";
 		retorno += "Nome: "     + this.nome     + "\n";
 		retorno += "Dose: "    + this.dose    + " mg\n";
-		retorno += "LaboratÃ³rio: "     + this.laboratorio     + "\n";
+		retorno += "Laboratório: "     + this.laboratorio     + "\n";
 		retorno += "Valor: R$ "  + this.valor  + "\n";
 		retorno += "Categoria: "  + this.categoria  + "\n";
-		retorno += "PrescriÃ§Ã£o mÃ©dica: "  + precisaPrescricao()        + "\n";
+		retorno += "Prescrição médica: "  + precisaPrescricao()        + "\n";
 		return retorno;
 	}
 	public abstract String precisaPrescricao();

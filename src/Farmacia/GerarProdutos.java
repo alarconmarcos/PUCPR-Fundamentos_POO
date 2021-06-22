@@ -32,7 +32,7 @@ public class GerarProdutos {
 	public void excluirProduto(Produto mani) {
 		if (this.produtos.contains(mani)) {
 			this.produtos.remove(mani);
-			System.out.println("[Produto " + mani.toString() + "excluÃ­do com sucesso!]\n");
+			System.out.println("[Produto " + mani.toString() + "excluído com sucesso!]\n");
 		}
 		else
 			System.out.println("Produto inexistente!\n");
@@ -40,7 +40,7 @@ public class GerarProdutos {
 
 	public void excluirProdutos() {
 		produtos.clear();
-		System.out.println("Produtos excluÃ­dos com sucesso!\n");
+		System.out.println("Produtos excluídos com sucesso!\n");
 	}
 
     public void gravarProdutos()  {
@@ -76,6 +76,7 @@ public class GerarProdutos {
 					this.produtos.add((Medicamento)obj);
 				else if (obj instanceof Cosmetico)  
 					this.produtos.add((Cosmetico)obj);
+				
 			}
 		}catch (EOFException ex) {     // when EOF is reached
 			System.out.println ("End of file reached");
