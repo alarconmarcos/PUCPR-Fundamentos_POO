@@ -6,10 +6,10 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 public class Mensagem {//Classe de mensagens utilizando JOptionPane 
-	static final int IconError = 0; // Constantes com os tipos de icones de mensagem para facilitar
-	static final int IconInfo = 1;
-	static final int IconAlert = 2;
-	static final int IconQuestion = 3;
+	final static int IconError = 0; // Constantes com os tipos de icones de mensagem para facilitar
+	final static int IconInfo = 1;
+	final static int IconAlert = 2;
+	final static int IconQuestion = 3;
 
 	static Icon icon = new ImageIcon("farmacia.png"); // Icone usado tanto na tela quanto na barra de título das mensagens
 	
