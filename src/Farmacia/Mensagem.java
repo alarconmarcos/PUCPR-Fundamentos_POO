@@ -5,16 +5,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
-public class Mensagem {
-	static int IconError = 0;
-	static int IconInfo = 1;
-	static int IconAlert = 2;
-	static int IconQuestion = 3;
+public class Mensagem {//Classe de mensagens utilizando JOptionPane 
+	static final int IconError = 0; // Constantes com os tipos de icones de mensagem para facilitar
+	static final int IconInfo = 1;
+	static final int IconAlert = 2;
+	static final int IconQuestion = 3;
 
-	static Icon icon = new ImageIcon("farmacia.png");
+	static Icon icon = new ImageIcon("farmacia.png"); // Icone usado tanto na tela quanto na barra de título das mensagens
 	
 	
-	public static String input(String texto, String titulo) {
+	public static String input(String texto, String titulo) { //Método de mensagem com input
 		if (titulo == null) {
 			titulo = "Controle da Farmácia";
 		}
@@ -22,40 +22,33 @@ public class Mensagem {
 	
 	}
 	
-	public static void mensagem(String texto, String titulo, int tipo) {
+	public static void mensagem(String texto, String titulo, int tipo) { //Método de mensagem com logo de farmácia no título e icone do tipo de mensagem
 		if (titulo == null) {
 			titulo = "Controle da Farmácia";
 		}
-//		JOptionPane.showMessageDialog(null, texto, titulo, tipo,new ImageIcon("farmacia.png"));		
-//		JOptionPane.showMessageDialog(null, texto, titulo, tipo,null);		
 	
 		JOptionPane jp = new JOptionPane(texto, tipo, JOptionPane.DEFAULT_OPTION, null);
 		
 		JDialog dialog = jp.createDialog(null, titulo);
 		
-		dialog.setIconImage(((ImageIcon)icon).getImage());
+		dialog.setIconImage(((ImageIcon)icon).getImage()); //Seta o icone da barra de título
 		
 		dialog.setVisible(true); 
 		
 	}
-	public static void mensagem(String texto, String titulo) {
+	public static void mensagem(String texto, String titulo) { //Método de mensagem com logo de farmácia tanto no título quanto na tela
 		if (titulo == null) {
 			titulo = "Controle da Farmácia";
 		}
-//		JOptionPane.showMessageDialog(null, texto, titulo, tipo,new ImageIcon("farmacia.png"));		
-//		JOptionPane.showMessageDialog(null, texto, titulo, 0,new ImageIcon("farmacia.png"));		
 	
 		JOptionPane jp = new JOptionPane(texto, 0, JOptionPane.DEFAULT_OPTION, new ImageIcon("farmacia.png"));
 		
 		JDialog dialog = jp.createDialog(null, titulo);
 		
-		dialog.setIconImage(((ImageIcon)icon).getImage());
+		dialog.setIconImage(((ImageIcon)icon).getImage()); //Seta o icone da barra de título
 		
 		dialog.setVisible(true); 
 
 	}
-	
 
-	
-	
 }

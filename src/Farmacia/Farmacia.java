@@ -10,8 +10,6 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 
-
-
 public class Farmacia {
 	private ArrayList<Produto> produtos;
 
@@ -22,7 +20,6 @@ public class Farmacia {
 		String [] dadosOut = new String [dadosIn.length];
 
 		for (int i = 0; i < dadosIn.length; i++)
-//			dadosOut[i] = JOptionPane.showInputDialog  ("Entre com " + dadosIn[i]+ ": ");
 		    dadosOut[i] = Mensagem.input("Entre com " + dadosIn[i]+ ": ", null);
 
 		return dadosOut;
@@ -66,7 +63,6 @@ public class Farmacia {
 
 		//Enquanto não for possível converter o valor de entrada para inteiro, permanece no loop
 		while (!this.intValido(entrada)) {
-			//entrada = JOptionPane.showInputDialog(null, "Valor incorreto!\n\nDigite um número inteiro.");
 			entrada = Mensagem.input("Valor incorreto!\n\nDigite um número inteiro.", null);
 
 		}
@@ -81,12 +77,11 @@ public class Farmacia {
 			for (int i=0; i < produtos.size(); i++)
 				outputStream.writeObject(produtos.get(i));
 		} catch (FileNotFoundException ex) {
-			//JOptionPane.showMessageDialog(null,"Impossível criar arquivo!");
 			Mensagem.mensagem("Impossível criar arquivo!", null, Mensagem.IconError);
 			ex.printStackTrace();
 		} catch (IOException ex) {
 			ex.printStackTrace();
-		} finally {  //Close the ObjectOutputStream
+		} finally {  
 			try {
 				if (outputStream != null) {
 					outputStream.flush();
@@ -113,17 +108,16 @@ public class Farmacia {
 					produtosTemp.add((Produto) obj);
 				}   
 			}          
-		} catch (EOFException ex) { // when EOF is reached
+		} catch (EOFException ex) { 
 			System.out.println("Fim de arquivo.");
 		} catch (ClassNotFoundException ex) {
 			ex.printStackTrace();
 		} catch (FileNotFoundException ex) {
-//			JOptionPane.showMessageDialog(null,"Arquivo com produtos não existe!");
 			Mensagem.mensagem("Arquivo com produtos não existe!", null, Mensagem.IconError);
 			ex.printStackTrace();
 		} catch (IOException ex) {
 			ex.printStackTrace();
-		} finally {  //Close the ObjectInputStream
+		} finally {  
 			try {
 				if (inputStream != null) {
 					inputStream.close();
@@ -149,7 +143,6 @@ public class Farmacia {
 					"4. Gravar Produtos\n" +
 					"5. Recuperar Produtos\n" +
 					"9. Sair";
-//			entrada = JOptionPane.showInputDialog(null, menu + "\n\n", "Controle da Farmácia", 3);
 			entrada = Mensagem.input(menu + "\n\n", null);
 			opc1 = this.retornaInteiro(entrada);
 
@@ -159,7 +152,6 @@ public class Farmacia {
 						"1. Medicamento\n" +
 						"2. Cosmético\n";
 
-//				entrada = JOptionPane.showInputDialog(null, menu + "\n\n", "Entrada de Produtos na Farmácia\n", 3);
 				entrada = Mensagem.input(menu + "\n\n","Entrada de Produtos na Farmácia\n");
 				opc2 = this.retornaInteiro(entrada);
 
@@ -169,14 +161,12 @@ public class Farmacia {
 				case 2: produtos.add((Produto)leCosmetico());
 				break;
 				default: 
-//					JOptionPane.showMessageDialog(null,"Produto para entrada não escolhido!", "Alerta", 2);
 					Mensagem.mensagem("Produto para entrada não escolhido!", "Alerta", Mensagem.IconAlert);
 				}
 
 				break;
 			case 2: // Exibir dados
 				if (produtos.size() == 0) {
-//					JOptionPane.showMessageDialog(null,"Primeiramente, entre com os produtos!");
 					Mensagem.mensagem("Primeiramente, entre com os produtos!", null, Mensagem.IconAlert);
 					break;
 				}
@@ -184,41 +174,33 @@ public class Farmacia {
 				for (int i=0; i < produtos.size(); i++)	{
 					dados += produtos.get(i).toString() + "---------------\n";
 				}
-//				JOptionPane.showMessageDialog(null,dados);
 				Mensagem.mensagem(dados, null);
 				break;
 			case 3: // Limpar Dados
 				if (produtos.size() == 0) {
-//					JOptionPane.showMessageDialog(null,"Primeiramente, entre com os produtos!");
 					Mensagem.mensagem("Primeiramente, entre com os produtos!", null, Mensagem.IconAlert);
 					break;
 				}
 				produtos.clear();
-//				JOptionPane.showMessageDialog(null,"Dados LIMPOS com sucesso!");
 				Mensagem.mensagem("Dados LIMPOS com sucesso!", null, Mensagem.IconInfo);
 			break;
 			case 4: // Grava Dados
 				if (produtos.size() == 0) {
-//					JOptionPane.showMessageDialog(null,"Primeiramente, entre com os produtos!");
 					Mensagem.mensagem("Primeiramente, entre com os produtos!", null, Mensagem.IconAlert);
 					break;
 				}
 				salvaProdutos(produtos);
-//				JOptionPane.showMessageDialog(null,"Dados SALVOS com sucesso!");
 				Mensagem.mensagem("Dados SALVOS com sucesso!", null, Mensagem.IconInfo);
 				break;
 			case 5: // Recupera Dados
 				produtos = recuperaProdutos();
 				if (produtos.size() == 0) {
-//					JOptionPane.showMessageDialog(null,"Sem dados para apresentar.");
 					Mensagem.mensagem("Sem dados para apresentar.", null, Mensagem.IconAlert);
 					break;
 				}
-//				JOptionPane.showMessageDialog(null,"Dados RECUPERADOS com sucesso!");
 				Mensagem.mensagem("Dados RECUPERADOS com sucesso!", null, Mensagem.IconInfo);
 				break;
 			case 9:
-//				JOptionPane.showMessageDialog(null,"Fim do aplicativo FARMÁCIA");
 				Mensagem.mensagem("Fim do aplicativo FARMÁCIA", null, Mensagem.IconInfo);
 				break;
 			}
@@ -231,8 +213,6 @@ public class Farmacia {
 		Farmacia farmacia = new Farmacia ();
 		farmacia.menuFarmacia();
 
-
-		
 	}
 
 }
